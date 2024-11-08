@@ -77,8 +77,11 @@ li {
     padding: 10px;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
     transform: translateY(-10px);
+    z-index: 10;
+    /* Adds a bit of padding to ensure hover isn't lost easily */
+    padding-top: 15px;
 }
 
 .projects-menu:hover .project-list,
@@ -86,6 +89,8 @@ li {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+    /* Slight delay in visibility for smoother experience */
+    transition: opacity 0.3s ease, visibility 0.3s ease 0.1s;
 }
 
 .project-list a {
