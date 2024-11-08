@@ -73,11 +73,34 @@ li {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     padding: 10px;
+<<<<<<< HEAD
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
     z-index: 20; /* Increased z-index to ensure the list is above other content */
     pointer-events: auto; /* Ensure click interactions */
+=======
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transform: translateY(-10px);
+    z-index: 10;
+    /* Adds a bit of padding to ensure hover isn't lost easily */
+    pointer-events: none;
+
+    padding-top: 15px;
+}
+
+.projects-menu:hover .project-list,
+.project-list:hover {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    /* Slight delay in visibility for smoother experience */
+    pointer-events: auto;
+
+    transition: opacity 0.3s ease, visibility 0.3s ease 0.1s;
+>>>>>>> 31431bc795ea624e5396ad6076b9d4c9d374ab6e
 }
 
 /* Links inside project list */
