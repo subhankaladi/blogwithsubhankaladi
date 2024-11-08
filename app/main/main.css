@@ -81,6 +81,8 @@ li {
     transform: translateY(-10px);
     z-index: 10;
     /* Adds a bit of padding to ensure hover isn't lost easily */
+    pointer-events: none;
+
     padding-top: 15px;
 }
 
@@ -90,6 +92,8 @@ li {
     visibility: visible;
     transform: translateY(0);
     /* Slight delay in visibility for smoother experience */
+    pointer-events: auto;
+
     transition: opacity 0.3s ease, visibility 0.3s ease 0.1s;
 }
 
