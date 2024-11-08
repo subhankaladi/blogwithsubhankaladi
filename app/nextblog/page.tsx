@@ -24,43 +24,29 @@ const NextBlog = () => {
           params: {
             q: 'Next.js Blog',
             pageSize: 8,
-            apiKey: 'f02ab78ce0284cea93ee8a265203609d', // Replace with a valid API key
+            apiKey: 'f02ab78ce0284cea93ee8a265203609d',
             language: 'en'
+          },
+          headers: {
+            'Accept': 'application/json'
           }
         });
 
         setNews(response.data.articles);
-        setLoading(false);
       } catch (error) {
-        if (error instanceof Error) {
-          console.error('Error fetching news:', error.message);
+        if (axios.isAxiosError(error) && error.response) {
+          console.error('Error fetching news:', error.response.data);
+          console.error('Status:', error.response.status);
+          console.error('Headers:', error.response.headers);
         } else {
           console.error('Unexpected error:', error);
         }
+      } finally {
         setLoading(false);
       }
     };
 
-     fetchNews() 
     fetchNews();
-
-    // Temporary mock data to verify rendering
-    setNews([
-      { 
-        title: "Test Article 1", 
-        description: "This is a test description for article 1.", 
-        urlToImage: "https://via.placeholder.com/1024x576", 
-        url: "https://example.com"
-      },
-      { 
-        title: "Test Article 2", 
-        description: "This is a test description for article 2.", 
-        urlToImage: "https://via.placeholder.com/1024x576", 
-        url: "https://example.com"
-      },
-    ]);
-    setLoading(false);
-
   }, []);
 
   return (
@@ -73,13 +59,13 @@ const NextBlog = () => {
           news.map((article, index) => (
             <div key={index} className="card">
               <a href={article.url} target="_blank" rel="noopener noreferrer">
-                <Image 
-                  src={article.urlToImage || '/fallback-image.jpg'} // Fallback image if urlToImage is null
-                  alt="news" 
-                  className="card-img" 
-                  width={1024} 
-                  height={576}  
-                ></Image>
+                <Image
+                  src={article.urlToImage || '/fallback-image.jpg'}
+                  alt="news"
+                  className="card-img"
+                  width={1024}
+                  height={576}
+                />
                 <div className="card-content">
                   <h2 className="card-title">{article.title}</h2>
                   <p className="card-description">{article.description}</p>
@@ -92,6 +78,6 @@ const NextBlog = () => {
       <Footer />
     </div>
   );
-}
+};
 
 export default NextBlog;

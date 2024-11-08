@@ -1,3 +1,4 @@
+/* General body and main div styles */
 body, html {
     margin: 0;
     padding: 0;
@@ -19,10 +20,10 @@ body.light-mode, .main-div.light {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
     min-height: 100vh;
 }
 
+/* Navbar section */
 .navbar-section {
     display: flex;
     justify-content: space-between;
@@ -30,7 +31,6 @@ body.light-mode, .main-div.light {
     align-items: center;
     font-family: sans-serif;
     animation: fadeIn 3s ease forwards;
-
 }
 
 ul {
@@ -42,7 +42,7 @@ ul {
 li {
     list-style: none;
     cursor: pointer;
-    a{
+    a {
         text-decoration: none;
         color: white;
     }
@@ -54,6 +54,7 @@ li {
     border-radius: 5px;
 }
 
+/* Projects menu and project list */
 .projects-menu {
     position: relative;
 }
@@ -63,10 +64,7 @@ li {
     transition: transform 0.3s ease;
 }
 
-.projects-menu:hover .arrow {
-    transform: rotate(180deg);
-}
-
+/* Project list styling */
 .project-list {
     position: absolute;
     top: 100%;
@@ -75,24 +73,14 @@ li {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     padding: 10px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    transform: translateY(-10px);
-    z-index: 10;
-    /* Adds a bit of padding to ensure hover isn't lost easily */
-    padding-top: 15px;
-}
-
-.projects-menu:hover .project-list,
-.project-list:hover {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
-    /* Slight delay in visibility for smoother experience */
-    transition: opacity 0.3s ease, visibility 0.3s ease 0.1s;
+    z-index: 20; /* Increased z-index to ensure the list is above other content */
+    pointer-events: auto; /* Ensure click interactions */
 }
 
+/* Links inside project list */
 .project-list a {
     display: block;
     padding: 8px;
@@ -105,12 +93,13 @@ li {
     border-radius: 3px;
 }
 
+/* Theme toggle styling */
 .theme-toggle {
     font-size: 1.5rem;
     cursor: pointer;
 }
 
-
+/* Welcome section */
 .welcome-section {
     display: flex;
     flex-direction: column;
@@ -185,8 +174,6 @@ li {
         font-size: 1.2rem;
     }
 }
-
-
 
 @keyframes fadeIn {
     from {

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -27,12 +27,21 @@ const SocialMedia = () => {
             pageSize: 4,
             apiKey: 'f02ab78ce0284cea93ee8a265203609d',
             language: 'en'
+          },
+          headers: {
+            'Accept': 'application/json'
           }
         });
 
         setGenerativeNews(response.data.articles);
       } catch (error) {
-        console.error('Error fetching Generative AI & NVIDIA news:', error);
+        if (axios.isAxiosError(error) && error.response) {
+          console.error('Error fetching Generative AI & NVIDIA news:', error.response.data);
+          console.error('Status:', error.response.status);
+          console.error('Headers:', error.response.headers);
+        } else {
+          console.error('Unexpected error:', error);
+        }
       }
     };
 
@@ -44,13 +53,22 @@ const SocialMedia = () => {
             pageSize: 4,
             apiKey: 'f02ab78ce0284cea93ee8a265203609d',
             language: 'en'
+          },
+          headers: {
+            'Accept': 'application/json'
           }
         });
 
         setAgenticNews(response.data.articles);
-        setLoading(false);
       } catch (error) {
-        console.error('Error fetching Agentic AI news:', error);
+        if (axios.isAxiosError(error) && error.response) {
+          console.error('Error fetching Agentic AI news:', error.response.data);
+          console.error('Status:', error.response.status);
+          console.error('Headers:', error.response.headers);
+        } else {
+          console.error('Unexpected error:', error);
+        }
+      } finally {
         setLoading(false);
       }
     };
@@ -70,7 +88,7 @@ const SocialMedia = () => {
             {generativeNews.map((article, index) => (
               <div key={index} className="card">
                 <a href={article.url} target="_blank" rel="noopener noreferrer">
-                  <Image src={article.urlToImage} alt="news" className="card-img" width={1024} height={576} ></Image>
+                  <Image src={article.urlToImage || '/fallback-image.jpg'} alt="news" className="card-img" width={1024} height={576} />
                   <div className="card-content">
                     <h2 className="card-title">{article.title}</h2>
                     <p className="card-description">{article.description}</p>
@@ -82,7 +100,7 @@ const SocialMedia = () => {
             {agenticNews.map((article, index) => (
               <div key={index} className="card">
                 <a href={article.url} target="_blank" rel="noopener noreferrer">
-                  <Image src={article.urlToImage} alt="news" className="card-img" width={1024} height={576}  ></Image>
+                  <Image src={article.urlToImage || '/fallback-image.jpg'} alt="news" className="card-img" width={1024} height={576} />
                   <div className="card-content">
                     <h2 className="card-title">{article.title}</h2>
                     <p className="card-description">{article.description}</p>
