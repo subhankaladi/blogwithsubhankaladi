@@ -14,24 +14,18 @@ const Page = () => {
     setIsDarkMode(!isDarkMode);
     document.body.classList.toggle('light-mode', !isDarkMode);
   };
-
   const handleProjectClick = () => {
-    setShowProjects(true);
+    setShowProjects((prevShowProjects) => !prevShowProjects); // Toggle the visibility on click
+};
 
-    // Close the project list automatically after 10 seconds
-    setTimeout(() => {
-      setShowProjects(false);
-    }, 10000);
-  };
-
-  // Close the project list when clicking outside
- // Inside Page component
 const handleClickOutside = (event: MouseEvent) => {
   const target = event.target as HTMLElement;
-  if (!target.closest('.projects-menu')) {
-    setShowProjects(false);
+  if (!target.closest('.projects-menu') && !target.closest('.project-list')) {
+      setShowProjects(false);
   }
 };
+
+
 
 useEffect(() => {
   document.addEventListener('click', handleClickOutside);

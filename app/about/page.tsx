@@ -18,7 +18,7 @@ const Page = () => {
         <h1 className='heading'>Welcome to My Tech Blog: The Future of AI & Technology</h1>
         <p className='intro-text'>
           Hello, Im <strong>Subhan Kaladi</strong>, the creator of this tech blog website.
-          After dedicating continuesly <strong>17 hours</strong> of hard work, Ive built a platform to
+          After dedicating continuesly <strong>19 hours</strong> of hard work, Ive built a platform to
           share my passion for <strong>Generative AI</strong>, <strong>Next.js</strong>, and <strong>Agentic AI</strong>.
           The website includes live news feeds, a <strong>Login/Signup page</strong>, and insights
           on the latest tech trends and startup tips.

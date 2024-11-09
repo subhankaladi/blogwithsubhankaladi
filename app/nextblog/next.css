@@ -1,77 +1,117 @@
-.nextblog{
-    background-color: black;
-    color: white;
-    height: 100vh;
-
-}
-.genai{
-    span{
-        border: 2px solid yellow;
-        border-radius: 10px;
-    }
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.nextblog {
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    color: #333;
-  }
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.article-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+.article {
+  display: flex;
+  flex-direction: column; /* Image below title */
+  gap: 20px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  align-items: center; /* Center the content */
+}
+
+.article img {
+  width: 1000px; /* Ensure the image width stays the same */
+  height: auto;
+  border-radius: 8px;
   
-  .nextblog h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    text-align: center;
+}
+
+.article-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center; /* Center the text */
+}
+
+.article-title {
+  font-size: 34px;
+  font-weight: bold;
+  color: #333;
+  text-align: center; /* Title centered */
+}
+
+.article-description {
+  font-size: 22px;
+  color: #555;
+  margin-top: 10px;
+  text-align: center; /* Description centered */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+ 
+  .article img {
+    width: 650px;
   }
-  
-  .news-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .article {
+    
+    flex-direction: column;
+    align-items: center;
   }
+ 
   
-  .card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    width: 300px;
-    overflow: hidden;
-    transition: transform 0.3s;
+.article-grid{
+  display: flex;
+  flex-direction: column;
+  
+}
+  .article img {
+    width: 400px; /* Maintain image width */
+
   }
-  
-  .card:hover {
-    transform: scale(1.05);
+
+  .article-title {
+    font-size: 20px;
   }
-  
-  .card-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+
+  .article-description {
+    font-size: 14px;
   }
-  
-  .card-content {
-    padding: 16px;
+}
+
+@media (max-width: 480px) {
+  .article-title {
+    font-size: 18px;
   }
-  
-  .card-title {
-    font-size: 1.2em;
-    margin-bottom: 8px;
+  .article img {
+    width: 250px; /* Maintain image width */
   }
+
   
-  .card-description {
-    font-size: 0.9em;
-    color: #555;
+
+  .article-description {
+    font-size: 12px;
   }
-  
-  .read-more {
-    color: #007bff;
-    text-decoration: none;
-    font-size: 1em;
-    margin-top: 8px;
-    display: inline-block;
+}
+@media (max-width: 325px){
+  .article img{
+    width: 180px;
   }
-  
-  .read-more:hover {
-    text-decoration: underline;
+}
+@media (max-width: 255px){
+  .article img{
+    width: 80px;
   }
-  
+}

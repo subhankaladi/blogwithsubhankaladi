@@ -65,6 +65,7 @@ li {
 }
 
 /* Project list styling */
+/* Project list styling */
 .project-list {
     position: absolute;
     top: 100%;
@@ -73,31 +74,19 @@ li {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     padding: 10px;
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    z-index: 20; /* Increased z-index to ensure the list is above other content */
-    pointer-events: auto; /* Ensure click interactions */
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
     transform: translateY(-10px);
-    z-index: 10;
-    /* Adds a bit of padding to ensure hover isn't lost easily */
-    pointer-events: none;
-
-    padding-top: 15px;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    z-index: 20; /* Ensure the list is above other content */
 }
 
+/* Show project list when hovering over .projects-menu or .project-list */
 .projects-menu:hover .project-list,
 .project-list:hover {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
-    /* Slight delay in visibility for smoother experience */
-    pointer-events: auto;
-
-    transition: opacity 0.3s ease, visibility 0.3s ease 0.1s;
 }
 
 /* Links inside project list */
@@ -112,6 +101,7 @@ li {
     background: rgba(0, 0, 255, 0.1);
     border-radius: 3px;
 }
+
 
 /* Theme toggle styling */
 .theme-toggle {
@@ -202,4 +192,20 @@ li {
     to {
         opacity: 1;
     }
+}
+@media (max-width: 300px) {
+    .welcome-section {
+        font-size: 1.5rem;
+    }
+
+}
+@media (max-width: 250px) {
+    .welcome-section {
+        font-size: 0.5rem;
+    }
+    .typed-text {
+        font-size: 0.5rem;
+        margin-top: 15px;
+    }
+
 }

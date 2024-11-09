@@ -3,7 +3,7 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <div style={{ height: '25vh', backgroundColor: '#333', color: '#fff', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
+    <div style={{marginTop:'50px', height: '25vh', backgroundColor: '#333', color: '#fff', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '20px'  }}>
       <h3>Contact Me</h3>
       <p>Phone: +92 3293086256</p>
       <p>Email: subhankaladi@gmail.com</p>
